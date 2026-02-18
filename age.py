@@ -45,13 +45,21 @@ def user_date():
     return datetime.strptime(date, "%Y-%m-%d").date()
 
 
-"""Alternative method to input date without input validation"""
+"""Takes the date input and todays date, calculates difference as a
+timedelta then output the years"""
+
+
+def age_calculator(date_input):
+    today = date.today()
+    delta = today - date_input
+    return int(delta.days // 365.25)
+
+
+"""Alternative methods to input date without input validation"""
 # date_input = input("Enter a date (YYYY-MM-DD): ")
 # date_input = datetime.strptime(date_input, "%Y-%m-%d").date()
 
-"""Takes the date input and todays date, calculates difference as a
-timedelta then output the years"""
+# date_input = datetime.strptime("1990-01-01", "%Y-%m-%d").date()
+
 date_input = user_date()
-today = date.today()
-delta = today - date_input
-print(int(delta.days // 365.25))
+print(age_calculator(date_input))
